@@ -1,14 +1,14 @@
 # redlang-study
 Recording my notes as I study the Red Programming Language
 
-# Carl Sassenwrath's "REBOL Quick Start"
+## Carl Sassenwrath's "REBOL Quick Start"
 
 After quite a bit of floundering around, I settled on [this document](http://www.rebol.com/docs/quick-start.html) as a 
 way to get started in Red.
 
-## Red does not have `reform`
+### Red does not have `reform`
 
-You will roll along smoothly, converting program headers from having `REBOL` to `Red` until you hit this example in
+You will roll along smoothly, after converting program headers from having `REBOL` to `Red` until you hit this example in
 part 3:
 
 ```commandline
@@ -28,11 +28,11 @@ better. And (given my Python background)I think `repr` would be a better for `mo
 docs.
 
 
-## Red does not have `backdrop` or `btn`
+### Red does not have `backdrop` or `btn`
 
 This code failed also:
 
-```
+```red
 Red []
 
 view layout [
@@ -46,11 +46,12 @@ view layout [
 
 ```
 
-we need to use `backdrop` instead of `backcolor` [according to cosacam1](https://matrix.to/#/!wUTlqkqOhNGtfQzIsO:matrix.org/$1689776726116Iayym:gitter.im?via=gitter.im&via=matrix.org&via=tchncs.de)
+we need to use `backdrop` instead of `backcolor` [according to cosacam1](https://matrix.to/#/!wUTlqkqOhNGtfQzIsO:matrix.org/$1689776726116Iayym:gitter.im?via=gitter.im&via=matrix.org&via=tchncs.de). And
+note that `btn` doesn't exist in Red.
 
 Here is the working code:
 
-```commandline
+```red
 Red []
 
 view layout [
@@ -63,3 +64,34 @@ view layout [
 ]
 
 ```
+
+### order of operations
+
+In Quickstart part 4 we see a failing of REBOL/Red:
+
+```red
+>> 3 + 6 * 3
+== 27
+
+```
+
+### since `btn` does not exist
+
+In Part 4 this console code will not run:
+
+```red
+view layout [
+    btn "Press Me" red [alert "It worked!"]
+]
+```
+
+instead we need this:
+
+
+```red
+view layout [
+    style btn: button 130
+    btn "Press Me" red [alert "It worked!"]
+]
+```
+
