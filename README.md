@@ -67,12 +67,19 @@ view layout [
 
 ### order of operations
 
-In Quickstart part 4 we see a failing of REBOL/Red:
+In Quickstart part 4 we see a failing of REBOL/Red: it does not respect order of operations
 
 ```red
 >> 3 + 6 * 3
 == 27
 
+```
+
+[Here](https://matrix.to/#/!wUTlqkqOhNGtfQzIsO:matrix.org/$1689915018197RbnqE:gitter.im?via=gitter.im&via=matrix.org&via=tchncs.de) is how to fix it.
+
+```red
+>> 3 + (6 * 3)
+== 21
 ```
 
 ### since `btn` does not exist
